@@ -13,7 +13,6 @@ import {
 } from "../styles/Cart.style";
 import { AddToCartButton } from "../styles/Details.style";
 import trashIcon from "../images/trash.svg";
-
 import { ButtonDefault } from "../styles/Details.style";
 class Cart extends React.Component {
   constructor(props) {
@@ -21,13 +20,15 @@ class Cart extends React.Component {
 
     this.state = {};
   }
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps ) {
     if (
       JSON.stringify(this.props.itemsAddedToCart) !==
       JSON.stringify(prevProps.itemsAddedToCart)
     ) {
       this.props.getTotal();
+
     }
+    
   }
 
   render() {
@@ -38,8 +39,8 @@ class Cart extends React.Component {
         <hr />
         {itemsAddedToCart.map((item, index) => {
           return (
-            <section key={index}>
-              
+            <>
+              {" "}
               <ProductContainer key={index}>
                 <Column>
                   <ItemContainer position="left">
@@ -77,7 +78,7 @@ class Cart extends React.Component {
                         className="square"
                         onClick={() => this.props.onIncrement(item)}
                       >
-                        <div className="counter-sign"> +</div>
+                       <div className="counter-sign"> +</div>
                       </div>
                       <div className="count-value">{item.counter}</div>
                       <div
@@ -95,36 +96,20 @@ class Cart extends React.Component {
                       {" "}
                       <img src={trashIcon} alt="trash" />
                     </div>
-                    <div className="trash">
-                      <AddToCartButton
-                        to={`/details/${item.id}${item.categoryId}`}
-                      >
-                        Go To Details
-                      </AddToCartButton>
-                    </div>
+                  <div className="trash">
+                    <AddToCartButton to={`/details/${item.id}${item.categoryId}`}>
+                      Go To Details
+                    </AddToCartButton></div>
                   </ItemContainer>
                 </Column>
               </ProductContainer>
               <hr />
-              
-            </section>
+              <div>
+                {itemsAddedToCart.length? <h2>total:{this.props.Total}</h2>:<></>}
+              </div>
+            </>
           );
         })}
-        <div>
-                {itemsAddedToCart.length ? (
-                  <h2 className="total text-uppercase">
-                    total:{" "}
-                    {
-                      itemsAddedToCart[0].prices[
-                        this.props.selectedCurrencyIndex
-                      ].currency.symbol
-                    }
-                    {this.props.total}
-                  </h2>
-                ) : (
-                  <></>
-                )}
-              </div>
       </Container>
     );
   }

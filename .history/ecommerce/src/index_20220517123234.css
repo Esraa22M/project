@@ -171,6 +171,5 @@ li{
   border:2px solid var(--clr-primary)!important;
 }
 .total{
-  margin: 1vw 0;
-  font-weight: 400;
+  margin-top: 3vw;
 }

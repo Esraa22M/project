@@ -128,8 +128,8 @@ class Navbar extends React.Component {
                 <img src={cart} alt="cart" className="cart-icon" />
                 <img src={cartLeg} alt="cart" className="cart-leg-1 " />
                 <img src={cartLeg} alt="cart" className="cart-leg-2 " />
-              </ShoppingCartIcon>
-              <span className="bage bg-dark text-light flex flex-center items-start">{this.props.quantity}</span></LinkContainer>
+              </ShoppingCartIcon></LinkContainer>
+              <span className="bage bg-dark text-light flex flex-center items-start">{this.props.quantity}</span>
             </div>
           </Nav>
         </Container>

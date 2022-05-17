@@ -13,7 +13,6 @@ import {
 } from "../styles/Cart.style";
 import { AddToCartButton } from "../styles/Details.style";
 import trashIcon from "../images/trash.svg";
-
 import { ButtonDefault } from "../styles/Details.style";
 class Cart extends React.Component {
   constructor(props) {
@@ -38,8 +37,8 @@ class Cart extends React.Component {
         <hr />
         {itemsAddedToCart.map((item, index) => {
           return (
-            <section key={index}>
-              
+            <>
+              {" "}
               <ProductContainer key={index}>
                 <Column>
                   <ItemContainer position="left">
@@ -106,11 +105,7 @@ class Cart extends React.Component {
                 </Column>
               </ProductContainer>
               <hr />
-              
-            </section>
-          );
-        })}
-        <div>
+              <div>
                 {itemsAddedToCart.length ? (
                   <h2 className="total text-uppercase">
                     total:{" "}
@@ -125,6 +120,9 @@ class Cart extends React.Component {
                   <></>
                 )}
               </div>
+            </>
+          );
+        })}
       </Container>
     );
   }

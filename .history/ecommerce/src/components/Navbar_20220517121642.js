@@ -15,8 +15,6 @@ import {
   Center,
   ShoppingCartIcon,
 } from "../styles/Navbar.style";
-import {  LinkContainer } from "../styles/ProdctItem.style";
-
 import { Container } from "../styles/Category.style";
 class Navbar extends React.Component {
   constructor(props) {
@@ -25,16 +23,6 @@ class Navbar extends React.Component {
     this.state = {
       links: this.getInitalRouteValue(),
     };
-  }
-  componentDidUpdate(prevProps ) {
-    if (
-      JSON.stringify(this.props.itemsAddedToCart) !==
-      JSON.stringify(prevProps.itemsAddedToCart)
-    ) {
-      this.props.getQuantity();
-
-    }
-    
   }
   getInitalRouteValue = () => {
     let url = window.location.pathname;
@@ -124,12 +112,12 @@ class Navbar extends React.Component {
                   this.props.handleCurrencyIndexSelection
                 }
               />
-            <LinkContainer to="/cart">  <ShoppingCartIcon onClick={() => this.props.onCartClick("esraa")} className="flex flex-column flex-center items-center">
+              <ShoppingCartIcon onClick={() => this.props.onCartClick("esraa")} className="flex flex-column flex-center items-center">
                 <img src={cart} alt="cart" className="cart-icon" />
                 <img src={cartLeg} alt="cart" className="cart-leg-1 " />
                 <img src={cartLeg} alt="cart" className="cart-leg-2 " />
               </ShoppingCartIcon>
-              <span className="bage bg-dark text-light flex flex-center items-start">{this.props.quantity}</span></LinkContainer>
+              <span className="bage bg-dark text-light">{this.props.getQuantity()}</span>
             </div>
           </Nav>
         </Container>

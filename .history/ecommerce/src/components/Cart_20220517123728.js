@@ -13,7 +13,6 @@ import {
 } from "../styles/Cart.style";
 import { AddToCartButton } from "../styles/Details.style";
 import trashIcon from "../images/trash.svg";
-
 import { ButtonDefault } from "../styles/Details.style";
 class Cart extends React.Component {
   constructor(props) {

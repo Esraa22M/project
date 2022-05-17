@@ -9,7 +9,6 @@ export let Nav = styled.nav`
     position:absolute;
     top:1.563rem;
     right:6.44vw;
-    text-align:center;
     border-radius:50%;
     min-height:1.35vw;
   }
